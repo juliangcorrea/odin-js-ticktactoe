@@ -36,8 +36,29 @@ section{
 .move-grid {
   border: 1px solid blue;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .move-grid:hover{
   background-color: wheat;
+}
+
+.choice{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ex{
+  display: none;
+  fill: red;
+  height: 85px;
+}
+
+.circle{
+  display: none;
+  fill: blue;
+  height: 80px;
 }
