@@ -22,6 +22,25 @@ section{
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background-color: #f9f4ef;
+  padding-right: 150px;
+}
+
+aside{
+  width: 15%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eaddcf;
+}
+
+aside h1{
+  writing-mode:vertical-rl;
+  text-align: center;
+  text-orientation: upright;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 35px;
 }
 
 .names{
@@ -31,29 +50,40 @@ section{
 }
 
 .name{
-  margin: 10px;
-  font-size: larger;
+  margin: 30px 20px;
+  font-size: 20px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif ;
 }
 
 .resetBtn{
   margin: 10px;
+  margin-top: 20px;
   font-size: larger;
   padding: 10px 15px;
   border-radius: 10px;
   cursor: pointer;
+  background-color: #8c7851;
+  color:#fffffe;
+  border-style: none;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+  border: 2px solid transparent;
+}
+
+.resetBtn:hover{
+  border: 2px solid black;
 }
 
 .game-grid {
   height: 300px;
   width: 300px;
-  border: 1px solid red;
+  border: 1px solid #f25042;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
 }
 
 .move-grid {
-  border: 1px solid blue;
+  border: 1px solid #f25042;
   cursor: pointer;
   display: flex;
   align-items: center;
