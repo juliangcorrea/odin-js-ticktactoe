@@ -10,7 +10,13 @@ const Gameboard = {
           <svg class="ex" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>close-thick</title><path d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12L20 6.91Z" /></svg>
         </div>
       </div>`,
-      resetBtn: document.querySelector('.resetBtn').addEventListener('click', () => Gameboard.gameflow.resetGame())
+      resetBtn: document.querySelectorAll('.resetBtn').forEach(element => {
+        element.addEventListener('click', () => {
+          Gameboard.gameflow.resetGame()
+          Gameboard.gameboard.dialog.close()
+        })
+      }),
+      dialog: document.querySelector('.score')
     },
     players: {
       player1Moves: [],
@@ -69,29 +75,26 @@ const Gameboard = {
         if(this.checkWin(Gameboard.players.player1Moves)) {
           setTimeout(() => {
             if(player1Name == ""){
-              alert('Player 1 wins!')
+              this.showResults('Player 1 wins!')
             } else {
-              alert(`${player1Name} wins!`);
+              this.showResults(`${player1Name} wins!`);
             }
-            this.resetGame();
           }, 100);
           return;
         }
         if (this.checkWin(Gameboard.players.player2Moves)) {
           setTimeout(() => {
             if(player2Name == ""){
-              alert('Player 2 wins!')
+             this.showResults('Player 2 wins!')
             } else {
-              alert(`${player2Name} wins!`);
+              this.showResults(`${player2Name} wins!`);
             }
-            this.resetGame();
           }, 100);
           return;
         }
         if (Gameboard.gameboard.turn > 9) {
           setTimeout(() => {
-            alert('Draw!');
-            this.resetGame();
+            this.showResults('Draw!');
           }, 100);
           return;
         }
@@ -104,6 +107,11 @@ const Gameboard = {
         document.querySelector('.player1').value = ''
         document.querySelector('.player2').value = ''
         this.addTiles();
+      },
+      showResults: function(message){
+        const results = Gameboard.gameboard.dialog.querySelector('.score-results')
+        results.textContent = message
+        Gameboard.gameboard.dialog.showModal()
       },
       addTiles: function() {
         const getTileBoard = document.querySelector('.game-grid')

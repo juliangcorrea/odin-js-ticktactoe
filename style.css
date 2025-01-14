@@ -111,3 +111,22 @@ aside h1{
   fill: blue;
   height: 80px;
 }
+
+.score{
+  align-self: center;
+  justify-self: center;
+  height: 200px;
+  width: 200px;
+  max-width: 75%;
+  padding: 20px;
+  border: 2px solid #001858;
+  border-radius: 10px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.score[open]{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
